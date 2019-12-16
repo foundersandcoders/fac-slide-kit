@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>express.js intro - week8</title>
+
+    <link rel="stylesheet" href="../css/reveal.css" />
+    <link rel="stylesheet" href="../css/theme/fac.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "../css/print/pdf.css"
+        : "../css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <style>
+      /* BLACK: #121212 */
+      /* YELLOW: #ffe500 */
+      /* BLUE: #0805ec */
+      /* GREEN: #00be00 */
+      /* RED: #ff2800 */
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-color="#121212">
+          <img src="../assets/logos/logo-mobile.png" class="img-s" />
+          <h1>
+            An intro to express week
+          </h1>
+          <p></p>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              So what is<br /><span class="bigunderline">express.js?</span>
+            </h2>
+            <p class="fragment">
+              Express.js is a minimal, unopinionated web framework for node.
+            </p>
+            <p class="fragment">
+              It builds upon node's features, and offers a lot of tools that
+              makes writing node apps MUCH easier.
+            </p>
+            <p class="fragment">
+              Implements a lot of low level functionality behind the scenes for
+              the repetitive operations of a web server.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              for example, express has a form body parser, so you can focus on
+              writing code to actually use your form data, rather than writing
+              code to parse it
+              <span class="bigunderline">(remember streams and chunking?)</span>
+            </p>
+            <p class="fragment">
+              since we're now going to be using a framework, it's a good time to
+              talk a little about frameworks and libraries in general.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              <span class="bigunderline">Segue: Framework vs Library</span>
+            </h2>
+            <p class="fragment">
+              Both frameworks and libraries are code written by someone else
+              that is used to help solve common problems.
+            </p>
+            <p class="fragment">
+              but they're not interchangeable terms.
+            </p>
+          </section>
+
+          <section>
+            <h3><span class="bigunderline">Libraries</span></h3>
+            <p class="fragment">
+              <em>
+                A library is a set of reusable functions that can be usually be
+                plugged in wherever you want.
+              </em>
+            </p>
+            <p class="fragment">
+              Libraries are written so that developers across the world dont
+              have to rewrite the same bit of code from scratch.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              <span class="bigunderline"
+                >You are in complete control of what the library does.</span
+              ><br />
+            </p>
+
+            <p class="fragment">
+              You choose when and where to call a function from the library, it
+              executes some code, and that ends your deal with the library.
+            </p>
+          </section>
+
+          <section>
+            <h3><span class="bigunderline">Frameworks</span></h3>
+            <p class="fragment">
+              <em>
+                A framework, however, is more like a blueprint for a process.
+                There is a control flow already in place, a system of functions
+                that do things in a certain way, in a certain order.
+              </em>
+            </p>
+            <p class="fragment">
+              Generally, frameworks work as one high level system, rather than a
+              series of independent operations.
+            </p>
+          </section>
+          <section>
+            <p>
+              <span class="bigunderline"
+                >The framework defines when and where you can insert your own
+                code into this blueprint, i.e, it calls the code you plugged in,
+                when it needs to.</span
+              ><br />
+            </p>
+
+            <p class="fragment">
+              A framework can be compared to a building contractor, you can
+              provide your input to shape the house to your requirements, but
+              they do the work and have direct control over the workers and
+              processes involved.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              <span class="bigunderline"
+                >Opinionated vs Unopinionated frameworks</span
+              >
+            </h2>
+            <p class="fragment">
+              Opinionated frameworks are those with opinions about the "right
+              way" to handle any particular task.
+            </p>
+            <p class="fragment">
+              Unopinionated frameworks, by contrast, have far fewer restrictions
+              on how to achieve a goal
+            </p>
+          </section>
+
+          <section>
+            <span class="bigunderline">
+              Unopinionated frameworks make it easier for developers to use the
+              optimal modules to complete a particular task, at the cost that
+              you need to find the modules yourself.
+            </span>
+          </section>
+
+          <section>
+            <span class="bigunderline">
+              Express is unopinionated.
+            </span>
+            <p class="fragment">
+              You can configure the behaviour between a request and a response,
+              with a large number of compatible modules (express calls these
+              middleware). <br />You can also make your own middleware.
+            </p>
+            <p class="fragment">
+              You can structure the express app in one file or multiple files,
+              and using any directory structure.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2><span class="bigunderline">Abstraction</span></h2>
+            <p class="fragment">
+              If something's hard, someone's probably done it before, and shared
+              it for free.
+            </p>
+          </section>
+
+          <section>
+            <h4>
+              <span class="bigunderline"
+                >Abstraction is the process of hiding the more complex
+                functionality of a program, and only giving the most relevant
+                information to the programmer.</span
+              >
+            </h4>
+            <p class="fragment">
+              This allows for code re-use, and libraries and frameworks are
+              built on the idea of abstraction: they both abstract the
+              underlying code and allow you to reuse functionality when you need
+              it.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              <span class="bigunderline">Node HTTP module vs Express</span>
+            </h2>
+            <p class="fragment">
+              An example of abstraction in express
+            </p>
+          </section>
+          <section>
+            <h4>
+              <span class="bigunderline"
+                >To serve static files (css,images,js) in a node server, you'd
+                write a slightly wordy function that looks like this:</span
+              >
+            </h4>
+            <pre><code data-trim>
+                        const handlePublic = (request, response, url) => {
+                            const extension = url.split('.')[1];
+                            const extensionType = {
+                              html: 'text/html',
+                              css: 'text/css',
+                              js: 'application/javascript',
+                              ico: 'image/x-icon',
+                            };
+                            const filePath = path.join(__dirname, '..', url);
+                            fs.readFile(filePath, (error, file) => {
+                              if (error) {
+                                console.log(error);
+                                response.writeHead(404, { 'Content-Type': 'text/html' });
+                                response.end('<h1>404 file not found</h1>');
+                              } else {
+                                response.writeHead(200, { 'Content-Type': extensionType[extension] });
+                                response.end(file);
+                              }
+                            });
+                          };
+                              </code></pre>
+          </section>
+          <section>
+            <h4>
+              <span class="bigunderline"
+                >However with express, you can serve a whole directory of static
+                files from your server with a single line of code</span
+              >
+            </h4>
+            <pre><code data-trim>
+                    app.use(express.static('public'));
+                      </code></pre>
+
+            <p class="fragment">
+              this will automatically handle any requests for images, css and
+              javascript files made from your site, and point these requests to
+              your public folder.
+            </p>
+            <p class="fragment">
+              your fingers will thank you when you write an express server
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              <span class="bigunderline">So why did we teach node first?</span>
+            </h2>
+            <p class="fragment">
+              because manually setting content-types and response http headers
+              are fundamental to understanding how the web works
+            </p>
+            <p class="fragment">
+              Frameworks are nice, but you shouldn't let them be a crutch.
+            </p>
+          </section>
+        </section>
+        <section
+          data-background="../assets/ui/stripey_small.svg"
+          data-background-repeat="repeat"
+          data-background-size="100px"
+        >
+          <h1><span class="bigunderline">Questions?</span></h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        dependencies: [
+          { src: "../plugin/markdown/marked.js" },
+          { src: "../plugin/markdown/markdown.js" },
+          { src: "../plugin/notes/notes.js", async: true },
+          {
+            src: "../plugin/highlight/highlight.js",
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
