@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Design burst - Week 7</title>
+
+    <link rel="stylesheet" href="../css/reveal.css" />
+    <link rel="stylesheet" href="../css/theme/fac.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "../css/print/pdf.css"
+        : "../css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <style>
+      /* BLACK: #121212 */
+      /* YELLOW: #ffe500 */
+      /* BLUE: #0805ec */
+      /* GREEN: #00be00 */
+      /* RED: #ff2800 */
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <img src="../assets/logos/logo-mobile.png" class="img-s" />
+          <h2>Design burst</h2>
+          <h3>Week 7: Error message design</h3>
+          <aside class="notes">
+            Sources: https://cxl.com/blog/error-messages/
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h3><span class="bigunderline">1. Set clear expectations</span></h3>
+            <img src="https://i.imgur.com/50HVp96.png" />
+            <aside class="notes">
+              Source: https://material.io/components/text-fields/#anatomy
+            </aside>
+          </section>
+          <section>
+            <p>
+              Use helper text to convey additional guidance about form input
+              fields
+            </p>
+            <img src="https://i.imgur.com/Gsi1vNw.png" />
+          </section>
+          <section>
+            <p>
+              When text input isn’t accepted, an error message can display
+              instructions on how to fix it
+            </p>
+            <img src="https://i.imgur.com/axfy8KS.png" />
+            <p>
+              Use icons to flag issues for colorblind users
+            </p>
+          </section>
+          <section>
+            <p>
+              Give real time feedback to help users avoid making errors
+            </p>
+            <img src="https://i.imgur.com/bePjW17.png" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>
+              <span class="bigunderline">2. Craft helpful copy</span>
+            </h3>
+            <br />
+            <p>Describe what went wrong, why, and how to fix it</p>
+            <img src="https://i.imgur.com/AYEJJ1t.png" />
+            <aside class="notes">
+              Sources:
+              <ul>
+                <li>
+                  https://www.slideshare.net/hanochaloni/bad-error-messages
+                </li>
+                <li>
+                  https://medium.com/@toddohanian/10-usability-heuristics-for-user-interfaces-in-web-design-c179aa39b54e
+                </li>
+              </ul>
+              <p>
+                Amazon promo code entry input is an example of what not to do:
+                https://twitter.com/OptimiseOrDie/status/673957685742592000?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E673957685742592000&ref_url=https%3A%2F%2Fcxl.com%2Fblog%2Ferror-messages%2F
+              </p>
+            </aside>
+          </section>
+          <section>
+            <p>Don't blame the user</p>
+
+            <img src="https://i.imgur.com/H54fCv2.png" />
+            <aside class="notes">
+              Source:
+              https://uxmovement.com/forms/how-to-make-your-form-error-messages-more-reassuring/
+            </aside>
+          </section>
+          <section>
+            <p>Humour <i>can</i> help</p>
+            <img src="https://i.imgur.com/eGCUyVf.png" />
+            <aside class="notes">
+              Source: https://elementor.com/blog/404-page-inspiration/
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>
+              <span class="bigunderline"
+                >3. Place error messages appropriately</span
+              >
+            </h3>
+            <br />
+            <img src="https://i.imgur.com/O2gj9On.png" />
+            <aside class="notes">
+              Twitter's error messages are positioned near the UI element to
+              which they relate (e.g. the feed). This makes it clear to the user
+              which part of the interface has errored, and why. They can still
+              continue to interact with other parts of the UI.
+            </aside>
+          </section>
+          <section data-background-color="#fafafa">
+            <p>
+              Avoid error summaries
+            </p>
+            <img src="https://i.imgur.com/pblcRTr.png" />
+          </section>
+        </section>
+        <section>
+          <h3>Recap</h3>
+          <ol>
+            <p>1. Set clear expectations</p>
+            <p>2. Craft helpful copy</p>
+            <p>3. Place error messages appropriately</p>
+          </ol>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        dependencies: [
+          { src: "../plugin/markdown/marked.js" },
+          { src: "../plugin/markdown/markdown.js" },
+          { src: "../plugin/notes/notes.js", async: true },
+          {
+            src: "../plugin/highlight/highlight.js",
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
